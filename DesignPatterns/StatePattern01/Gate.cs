@@ -25,15 +25,5 @@ namespace StatePattern01
         {
             _currentState.Pay();
         }
-
-        //public void PayOk()
-        //{
-        //    _currentState.PayOk();
-        //}
-
-        //public void PayFailed()
-        //{
-        //    _currentState.PayFailed();
-        //}
     }
 }

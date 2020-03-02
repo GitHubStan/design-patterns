@@ -4,11 +4,8 @@ namespace StatePattern01.GateStates
 {
     public class OpenedGateState : GateState, IGateAction
     {
-        private readonly Gate _gate;
-
-        public OpenedGateState(Gate gate)
+        public OpenedGateState(Gate gate) : base(gate)
         {
-            _gate = gate;
         }
 
         public void Enter()
@@ -16,8 +13,8 @@ namespace StatePattern01.GateStates
             var message = "You entered an opened gate. Closing gate behind you.";
             Console.WriteLine(message);
 
-            var closedGateState = new ClosedGateState(_gate);
-            _gate.ChangeState(closedGateState);
+            var closedGateState = new ClosedGateState(Gate);
+            Gate.ChangeState(closedGateState);
         }
 
         public void Pay()

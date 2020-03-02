@@ -4,8 +4,5 @@
     {
         public void Enter();
         public void Pay();
-        //public void PayOk();
-        //public void PayFailed();
-        
     }
 }
