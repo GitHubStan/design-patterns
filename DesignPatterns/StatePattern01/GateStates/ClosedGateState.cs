@@ -1,4 +1,5 @@
 ﻿using System;
+using StatePattern01.GateActions;
 
 namespace StatePattern01.GateStates
 {
@@ -16,11 +17,26 @@ namespace StatePattern01.GateStates
 
         public void Pay()
         {
-            var message = "Payment received. Opening gate.";
+            var message = "Card received. Processing payment.";
             Console.WriteLine(message);
-            
-            var openedGateState = new OpenedGateState(Gate);
-            Gate.ChangeState(openedGateState);
+
+            var paymentProcessingGateState = new PaymentProcessingGateState(Gate);
+            Gate.ChangeState(paymentProcessingGateState);
+
+            var paymentProcessor = new PaymentProcessor();
+            paymentProcessor.ProcessPayment(Gate);
+        }
+
+        public void PayOk()
+        {
+            var message = "Payment approved while the gate is gate is close. This should be called from PaymentProcessingGateState. Noop.";
+            Console.WriteLine(message);
+        }
+
+        public void PayFailed()
+        {
+            var message = "Payment declined while the gate is gate is close. This should be called from PaymentProcessingGateState. Noop.";
+            Console.WriteLine(message);
         }
     }
 }

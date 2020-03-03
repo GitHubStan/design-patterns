@@ -1,4 +1,5 @@
 ﻿using System;
+using StatePattern01.GateActions;
 
 namespace StatePattern01.GateStates
 {
@@ -20,6 +21,18 @@ namespace StatePattern01.GateStates
         public void Pay()
         {
             var message = "You do not need to pay at an opened gate!";
+            Console.WriteLine(message);
+        }
+
+        public void PayOk()
+        {
+            var message = "Payment accepted while gate is open. Gate stays open from the last payment.";
+            Console.WriteLine(message);
+        }
+
+        public void PayFailed()
+        {
+            var message = "Payment failed while gate is open. Gate stays open from the last payment.";
             Console.WriteLine(message);
         }
     }

@@ -1,8 +1,9 @@
-﻿using StatePattern01.GateStates;
+﻿using StatePattern01.GateActions;
+using StatePattern01.GateStates;
 
 namespace StatePattern01
 {
-    public class Gate
+    public class Gate : IGateAction
     {
         private IGateAction _currentState;
 
@@ -24,6 +25,16 @@ namespace StatePattern01
         public void Pay()
         {
             _currentState.Pay();
+        }
+
+        public void PayOk()
+        {
+            _currentState.PayOk();
+        }
+
+        public void PayFailed()
+        {
+            _currentState.PayFailed();
         }
     }
 }
